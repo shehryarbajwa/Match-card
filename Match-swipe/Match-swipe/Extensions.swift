@@ -13,6 +13,8 @@ extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor? , bottom : NSLayoutYAxisAnchor? , right: NSLayoutXAxisAnchor? , left: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingRight: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, width: CGFloat, height:CGFloat){
         
+        translatesAutoresizingMaskIntoConstraints = true
+        
         if let top = top {
             self.topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }
@@ -36,11 +38,5 @@ extension UIView {
             self.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
-    
-    
-    
-    
-    
-    
     
 }

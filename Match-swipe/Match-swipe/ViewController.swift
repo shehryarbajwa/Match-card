@@ -10,12 +10,16 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupStackViews()
+        
+        libraryButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 2, paddingBottom: 8, width: 20, height: 40)
+        
+        friendsButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: libraryButton.rightAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 10, paddingBottom: 8, width: 20, height: 40)
+        
+        
     }
     
     let libraryButton : UIButton = {
@@ -26,28 +30,21 @@ class ViewController: UIViewController {
     
     let friendsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "study")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(named: "study"), for: .normal)
         return button
     }()
     
-    func setupStackViews() {
+    public func setupStackViews() {
         let stackView = UIStackView(arrangedSubviews: [libraryButton, friendsButton])
-        view.addSubview(stackView)
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.distribution = .fillProportionally
+        view.addSubview(stackView)
+        stackView.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 0, paddingRight: 0, paddingLeft: 0, paddingBottom: 5, width: 10, height: 10)
     }
     
     
     
     
-    
-    
-    
-    
-    
-    
-
-
 }
 
