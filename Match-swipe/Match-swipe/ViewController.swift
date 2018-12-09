@@ -13,21 +13,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupStackViews()
+        
+        view.backgroundColor = .yellow
+        
         
         view.addSubview(libraryButton)
         view.addSubview(friendsButton)
+        view.addSubview(plusPhotoButton)
         
         
-        friendsButton.frame = CGRect(x: 360, y: 100, width: 40, height: 40)
+        
         
         setupConstraints()
-        
-        
-        
-//        libraryButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 2, paddingBottom: 8, width: 20, height: 20)
-//
-//        friendsButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: libraryButton.rightAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 10, paddingBottom: 8, width: 20, height: 20)
         
     
     }
@@ -44,6 +41,13 @@ class ViewController: UIViewController {
         button.setImage(UIImage(named: "books")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(handleFriendsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let plusPhotoButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "plus_photo"), for: .normal)
         return button
     }()
     
@@ -67,19 +71,11 @@ class ViewController: UIViewController {
         friendsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         friendsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         
+        plusPhotoButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        plusPhotoButton.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
+        plusPhotoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        
     }
-    
-//    public func setupStackViews() {
-//        let stackView = UIStackView(arrangedSubviews: [libraryButton, friendsButton])
-//        stackView.axis = .vertical
-//        stackView.spacing = 10
-//        stackView.distribution = .fillProportionally
-//        view.addSubview(stackView)
-//        stackView.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 0, paddingRight: 0, paddingLeft: 0, paddingBottom: 5, width: 10, height: 10)
-//    }
-    
-    
-    
-    
 }
 
