@@ -13,12 +13,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStackViews()
+        //setupStackViews()
         
-        libraryButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 2, paddingBottom: 8, width: 20, height: 40)
+        view.addSubview(libraryButton)
+        view.addSubview(friendsButton)
         
-        friendsButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: libraryButton.rightAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 10, paddingBottom: 8, width: 20, height: 40)
+        libraryButton.frame = CGRect(x: 40, y: 40, width: 20, height: 20)
         
+//        libraryButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 2, paddingBottom: 8, width: 20, height: 20)
+//
+//        friendsButton.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: libraryButton.rightAnchor, paddingTop: 10, paddingRight: 2, paddingLeft: 10, paddingBottom: 8, width: 20, height: 20)
         
     }
     
@@ -31,17 +35,18 @@ class ViewController: UIViewController {
     let friendsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "study"), for: .normal)
+        button.backgroundColor = .yellow
         return button
     }()
     
-    public func setupStackViews() {
-        let stackView = UIStackView(arrangedSubviews: [libraryButton, friendsButton])
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.distribution = .fillProportionally
-        view.addSubview(stackView)
-        stackView.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 0, paddingRight: 0, paddingLeft: 0, paddingBottom: 5, width: 10, height: 10)
-    }
+//    public func setupStackViews() {
+//        let stackView = UIStackView(arrangedSubviews: [libraryButton, friendsButton])
+//        stackView.axis = .vertical
+//        stackView.spacing = 10
+//        stackView.distribution = .fillProportionally
+//        view.addSubview(stackView)
+//        stackView.anchor(top: self.view.topAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, left: self.view.leftAnchor, paddingTop: 0, paddingRight: 0, paddingLeft: 0, paddingBottom: 5, width: 10, height: 10)
+//    }
     
     
     
