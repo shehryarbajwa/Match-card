@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
+        
         
         
         view.addSubview(libraryButton)
         view.addSubview(friendsButton)
-        view.addSubview(plusPhotoButton)
+        //view.addSubview(plusPhotoButton)
         
-        
+        setupStackView()
         
         
         setupConstraints()
@@ -48,8 +48,37 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
+        button.addTarget(self, action: #selector(handlePlusButton), for: .touchUpInside)
         return button
     }()
+    
+    let blueview : UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        view.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        
+        return view
+    }()
+    
+    func setupStackView() {
+        let stackView = UIStackView(arrangedSubviews: [blueview])
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        
+        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 10).isActive = true
+        stackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 20).isActive = true
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
+    }
+    
     
     @objc func handleLibraryButton(){
         print("Handling the library button")
@@ -57,6 +86,10 @@ class ViewController: UIViewController {
     
     @objc func handleFriendsButton(){
         print("Handling the friends button")
+    }
+    
+    @objc func handlePlusButton(){
+        print("Handling the plus Button")
     }
     
     func setupConstraints(){
@@ -71,10 +104,10 @@ class ViewController: UIViewController {
         friendsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         friendsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         
-        plusPhotoButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        plusPhotoButton.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
-        plusPhotoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+
+        
+        
+        
         
     }
 }
