@@ -13,20 +13,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
         view.addSubview(libraryButton)
         view.addSubview(friendsButton)
-        //view.addSubview(plusPhotoButton)
-        
         setupStackView()
-        
-        
         setupConstraints()
         
-    
+        print(view.frame.width)
     }
     let libraryButton : UIButton = {
         let button = UIButton(type: .system)
@@ -54,29 +46,29 @@ class ViewController: UIViewController {
     
     let blueview : UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 400).isActive = true
-        view.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        
+        view.backgroundColor = .green
+        return view
+    }()
+    
+    let redView : UIView = {
+       let view = UIView()
+        view.backgroundColor = .red
         return view
     }()
     
     func setupStackView() {
-        let stackView = UIStackView(arrangedSubviews: [blueview])
-        view.addSubview(stackView)
+        let stackView = UIStackView(arrangedSubviews: [blueview, redView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.alignment = .center
+        view.addSubview(stackView)
         
-        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 10).isActive = true
-        stackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 20).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10).isActive = true
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
+        stackView.frame = .init(x: 0, y: 0, width: 300, height: 300)
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
     }
     
     
@@ -103,11 +95,6 @@ class ViewController: UIViewController {
         friendsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         friendsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         friendsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-        
-
-        
-        
-        
         
     }
 }
