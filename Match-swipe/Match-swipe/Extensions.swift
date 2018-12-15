@@ -9,11 +9,16 @@
 import Foundation
 import UIKit
 
+
+extension UIColor {
+    static func rgb(red: CGFloat , green: CGFloat , blue: CGFloat) -> UIColor{
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
+}
+
 extension UIView {
     
-    func anchor(top: NSLayoutYAxisAnchor? , bottom : NSLayoutYAxisAnchor? , right: NSLayoutXAxisAnchor? , left: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingRight: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, width: CGFloat, height:CGFloat){
-        
-        translatesAutoresizingMaskIntoConstraints = true
+    func anchor(top : NSLayoutYAxisAnchor? , paddingTop: CGFloat, bottom: NSLayoutYAxisAnchor? , paddingBottom: CGFloat, right: NSLayoutXAxisAnchor?, paddingRight: CGFloat, left: NSLayoutXAxisAnchor?, paddingLeft: CGFloat) {
         
         if let top = top {
             self.topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
@@ -31,12 +36,6 @@ extension UIView {
             self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
         
-        if width != 0 {
-            self.widthAnchor.constraint(equalToConstant: width).isActive = true
-        }
-        if height != 0 {
-            self.heightAnchor.constraint(equalToConstant: height).isActive = true
-        }
     }
     
 }

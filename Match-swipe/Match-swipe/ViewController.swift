@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         stackView.distribution = .fillEqually
         view.addSubview(stackView)
         
-        stackView.frame = .init(x: 0, y: 0, width: 300, height: 300)
+        
         stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
