@@ -44,30 +44,16 @@ class ViewController: UIViewController {
         return button
     }()
     
-    let blueview : UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
-    }()
-    
-    let redView : UIView = {
-       let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
     
     func setupStackView() {
-        let stackView = UIStackView(arrangedSubviews: [blueview, redView])
+        let stackView = UIStackView(arrangedSubviews: [libraryButton, plusPhotoButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         view.addSubview(stackView)
         
         
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        stackView.anchor(top: view.topAnchor, paddingTop: 100, bottom: view.bottomAnchor, paddingBottom: 100, right: view.rightAnchor, paddingRight: -50, left: view.leftAnchor, paddingLeft: 20)
         
     }
     
@@ -85,16 +71,9 @@ class ViewController: UIViewController {
     }
     
     func setupConstraints(){
-        libraryButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        libraryButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        libraryButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        //libraryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        libraryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        libraryButton.anchor(top: view.topAnchor, paddingTop: 10, bottom: nil, paddingBottom: 0, right: view.rightAnchor, paddingRight: 20, left: view.leftAnchor, paddingLeft: 20)
         
-        friendsButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        friendsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        friendsButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        friendsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        plusPhotoButton.anchor(top: libraryButton.bottomAnchor, paddingTop: 20, bottom: view.bottomAnchor, paddingBottom: 20, right: view.rightAnchor, paddingRight: -20, left: view.leftAnchor, paddingLeft: 20)
         
     }
 }
