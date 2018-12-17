@@ -13,47 +13,75 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(libraryButton)
-        view.addSubview(friendsButton)
+//        view.addSubview(libraryButton)
+//        view.addSubview(friendsButton)
         setupStackView()
         setupConstraints()
-        
-        print(view.frame.width)
+        print(view.frame.height)
     }
-    let libraryButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "book")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleLibraryButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+//    let libraryButton : UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(UIImage(named: "book")?.withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: #selector(handleLibraryButton), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.contentMode = .scaleAspectFill
+//        return button
+//    }()
+//
+//    let friendsButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(UIImage(named: "books")?.withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: #selector(handleFriendsButton), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+//
+//    let plusPhotoButton : UIButton = {
+//        let button = UIButton(type: .system)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.setImage(UIImage(named: "plus_photo"), for: .normal)
+//        button.addTarget(self, action: #selector(handlePlusButton), for: .touchUpInside)
+//        button.contentMode = .scaleAspectFill
+//        return button
+//    }()
+    
+    let redView : UIView = {
+       let view = UIView()
+       view.backgroundColor = .red
+       view.translatesAutoresizingMaskIntoConstraints = false
+       view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+       return view
     }()
     
-    let friendsButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "books")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleFriendsButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let yellowView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        return view
     }()
     
-    let plusPhotoButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "plus_photo"), for: .normal)
-        button.addTarget(self, action: #selector(handlePlusButton), for: .touchUpInside)
-        return button
+    let blueView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        return view
     }()
+    
+    
     
     
     func setupStackView() {
-        let stackView = UIStackView(arrangedSubviews: [libraryButton, plusPhotoButton])
+        let stackView = UIStackView(arrangedSubviews: [redView,yellowView,blueView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        
         view.addSubview(stackView)
         
+        stackView.anchor(top: view.topAnchor, paddingTop: 0, bottom: view.bottomAnchor, paddingBottom: 0, right: view.rightAnchor, paddingRight: 0, left: view.leftAnchor, paddingLeft: 0)
         
-        stackView.anchor(top: view.topAnchor, paddingTop: 100, bottom: view.bottomAnchor, paddingBottom: 100, right: view.rightAnchor, paddingRight: -50, left: view.leftAnchor, paddingLeft: 20)
         
     }
     
@@ -71,9 +99,7 @@ class ViewController: UIViewController {
     }
     
     func setupConstraints(){
-        libraryButton.anchor(top: view.topAnchor, paddingTop: 10, bottom: nil, paddingBottom: 0, right: view.rightAnchor, paddingRight: 20, left: view.leftAnchor, paddingLeft: 20)
         
-        plusPhotoButton.anchor(top: libraryButton.bottomAnchor, paddingTop: 20, bottom: view.bottomAnchor, paddingBottom: 20, right: view.rightAnchor, paddingRight: -20, left: view.leftAnchor, paddingLeft: 20)
         
     }
 }
