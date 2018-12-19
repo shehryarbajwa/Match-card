@@ -18,24 +18,29 @@ extension UIColor {
 
 extension UIView {
     
-    func anchor(top : NSLayoutYAxisAnchor? , paddingTop: CGFloat, bottom: NSLayoutYAxisAnchor? , paddingBottom: CGFloat, right: NSLayoutXAxisAnchor?, paddingRight: CGFloat, left: NSLayoutXAxisAnchor?, paddingLeft: CGFloat) {
+    func anchor(top: NSLayoutYAxisAnchor? , bottom: NSLayoutYAxisAnchor? , leading: NSLayoutXAxisAnchor? , trailing: NSLayoutXAxisAnchor? , padding: UIEdgeInsets = .zero , size: CGSize = .zero){
+        
+        translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
-            self.topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
+            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         }
-        
         if let bottom = bottom {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: padding.bottom).isActive = true
+        }
+        if let leading = leading {
+            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+        }
+        if let trailing = trailing {
+            trailingAnchor.constraint(equalTo: trailing, constant: padding.right).isActive = true
         }
         
-        if let right = right {
-            self.rightAnchor.constraint(equalTo: right, constant: paddingRight).isActive = true
+        if size.width != 0{
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
         }
-        
-        if let left = left {
-            self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
-        
     }
     
 }
