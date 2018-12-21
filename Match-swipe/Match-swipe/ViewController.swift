@@ -61,10 +61,17 @@ class ViewController: UIViewController {
         return view
     }()
     
+    let whiteView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .purple
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [redView , yellowView , blueView, orangeView, purpleView, greenView, blackView].forEach {
+        [redView , yellowView , blueView, orangeView, purpleView, greenView, blackView, whiteView].forEach {
             view.addSubview($0)
         }
         setupConstraints()
@@ -91,13 +98,21 @@ class ViewController: UIViewController {
         
         blueView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, leading: self.view.leadingAnchor, bottom: yellowView.bottomAnchor, trailing: redView.leadingAnchor, padding: .init(top: 0, left: 30, bottom: 0, right: -30))
         
-        orangeView.anchor(top: yellowView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 100))
+        orangeView.anchor(top: yellowView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 0))
         
-        purpleView.anchor(top: orangeView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 100))
+        orangeView.anchorSize(to: yellowView)
+        
+        purpleView.anchor(top: orangeView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 0))
+        
+        purpleView.anchorSize(to: orangeView)
         
         greenView.anchor(top: self.blueView.bottomAnchor, leading: self.view.leadingAnchor, bottom: purpleView.bottomAnchor, trailing: orangeView.leadingAnchor, padding: .init(top: 50, left: 30, bottom: 0, right: -30))
         
-        blackView.anchor(top: self.greenView.bottomAnchor, leading: self.view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 50, left: 30, bottom: 0, right: 0), size: .init(width: 200, height: 200))
+        blackView.anchor(top: purpleView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: -10))
+        
+        blackView.anchorSize(to: purpleView)
+        
+        whiteView.fillSuperView()
     }
 }
 
