@@ -19,9 +19,16 @@ class ViewController: UIViewController {
        return view
     }()
     
-    let yellowView : UIView = {
+    let orangeView : UIView = {
         let view = UIView()
         view.backgroundColor = .orange
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let buttonsView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -31,19 +38,29 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupConstraints()
         stackViewsVertical()
+        stackViewButtons()
     }
     
+    
     func stackViewsVertical(){
-        let stackView = UIStackView(arrangedSubviews: [redView, yellowView])
+        let stackView = UIStackView(arrangedSubviews: [redView, orangeView])
         view.addSubview(stackView)
         
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+        stackView.fillSuperView()
         
+    }
+    
+    func stackViewButtons(){
+        let stackView = UIStackView(arrangedSubviews: [buttonsView])
+        view.addSubview(buttonsView)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.anchor(top: orangeView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 2, left: 0, bottom: 2, right: 0))
     }
     
     
@@ -59,14 +76,5 @@ class ViewController: UIViewController {
         print("Handling the plus Button")
     }
     
-    func setupConstraints(){
-        
-//        redView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 100))
-//
-//        yellowView.anchor(top: redView.bottomAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: -10), size: .init(width: 100, height: 100))
-//
-//        blueView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, leading: self.view.leadingAnchor, bottom: yellowView.bottomAnchor, trailing: redView.leadingAnchor, padding: .init(top: 0, left: 30, bottom: 0, right: -30))
-        
-    }
 }
 
