@@ -26,12 +26,6 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let blueView : UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     
     
     
@@ -42,11 +36,11 @@ class ViewController: UIViewController {
     }
     
     func stackViewsVertical(){
-        let stackView = UIStackView(arrangedSubviews: [redView, yellowView, blueView])
+        let stackView = UIStackView(arrangedSubviews: [redView, yellowView])
         view.addSubview(stackView)
         
         stackView.distribution = .fillEqually
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
         
