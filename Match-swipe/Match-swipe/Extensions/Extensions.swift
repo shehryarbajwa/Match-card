@@ -86,4 +86,22 @@ extension UIView {
         
         [anchoredConstraint.top , anchoredConstraint.leading, anchoredConstraint.bottom , anchoredConstraint.trailing , anchoredConstraint.width , anchoredConstraint.height].forEach{ $0?.isActive = true}
     }
+    
+    func centerInSuperView(size: CGSize = .zero){
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        if let superViewCenterXAnchor = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: superViewCenterXAnchor).isActive = true
+        }
+        if let superViewCenterYAnchor = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: superViewCenterYAnchor).isActive = true
+        }
+        
+        if size.width != 0{
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        if size.height != 0{
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
 }
