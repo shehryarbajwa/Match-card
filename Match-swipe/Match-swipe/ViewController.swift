@@ -60,11 +60,11 @@ class ViewController: UIViewController {
         stackViewTop.translatesAutoresizingMaskIntoConstraints = false
         stackViewTop.distribution = .fillEqually
         
-        let stackView = UIStackView(arrangedSubviews: [stackViewTop, blueView, stackViewBottom])
-        view.addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.fillSuperView()
+        let overallStackView = UIStackView(arrangedSubviews: [stackViewTop, blueView, stackViewBottom])
+        view.addSubview(overallStackView)
+        overallStackView.axis = .vertical
+        overallStackView.translatesAutoresizingMaskIntoConstraints = false
+        overallStackView.fillSuperView()
     }
     
     
