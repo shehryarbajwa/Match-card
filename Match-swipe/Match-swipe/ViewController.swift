@@ -63,12 +63,17 @@ class ViewController: UIViewController {
             return view
         }
         
+        let stackViewBottom = UIStackView(arrangedSubviews: bottomStackView)
+        stackViewBottom.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        stackViewBottom.translatesAutoresizingMaskIntoConstraints = false
+        stackViewBottom.distribution = .fillEqually
+        
         let stackViewTop = UIStackView(arrangedSubviews: topStackView)
         stackViewTop.heightAnchor.constraint(equalToConstant: 100).isActive = true
         stackViewTop.translatesAutoresizingMaskIntoConstraints = false
         stackViewTop.distribution = .fillEqually
         
-        let stackView = UIStackView(arrangedSubviews: [stackViewTop, blueView, redView])
+        let stackView = UIStackView(arrangedSubviews: [stackViewTop, blueView, stackViewBottom])
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
