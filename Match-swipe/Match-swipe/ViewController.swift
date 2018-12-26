@@ -10,20 +10,24 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
+    
+    
+    
+    
+    
 
     
-    let blueView : UIView = {
-       let view = UIView()
-       view.backgroundColor = .blue
-       view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-       return view
-    }()
+//    let blueView : UIView = {
+//       let view = UIView()
+//       view.backgroundColor = .blue
+//       view.translatesAutoresizingMaskIntoConstraints = false
+//        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//       return view
+//    }()
     
-    let orangeView : UIView = {
+    let blueView : UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
-        
+        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,36 +43,39 @@ class ViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackViewsVertical()
+        stackViews()
     }
     
-    
-    func stackViewsVertical(){
-        let stackView = UIStackView(arrangedSubviews: [blueView, orangeView, redView])
-        view.addSubview(stackView)
+    func stackViews(){
         
-        //stackView.distribution = .fillEqually
+        let topStackView = [UIColor.green , UIColor.darkGray, UIColor.purple].map { (color) -> UIView in
+            let view = UIView()
+            view.backgroundColor = color
+            return view
+        }
+        
+        let bottomStackView = [UIColor.yellow, UIColor.gray, UIColor.white].map { (color) -> UIView in
+            let view = UIView()
+            view.backgroundColor = color
+            return view
+        }
+        
+        let stackViewTop = UIStackView(arrangedSubviews: topStackView)
+        stackViewTop.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        stackViewTop.translatesAutoresizingMaskIntoConstraints = false
+        stackViewTop.distribution = .fillEqually
+        
+        let stackView = UIStackView(arrangedSubviews: [stackViewTop, blueView, redView])
+        view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.fillSuperView()
-        
     }
     
     
-    
-    @objc func handleLibraryButton(){
-        print("Handling the library button")
-    }
-    
-    @objc func handleFriendsButton(){
-        print("Handling the friends button")
-    }
-    
-    @objc func handlePlusButton(){
-        print("Handling the plus Button")
-    }
     
 }
 
