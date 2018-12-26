@@ -11,19 +11,7 @@ import Foundation
 
 class ViewController: UIViewController {
     
-    
-    
-    
-    
 
-    
-//    let blueView : UIView = {
-//       let view = UIView()
-//       view.backgroundColor = .blue
-//       view.translatesAutoresizingMaskIntoConstraints = false
-//        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//       return view
-//    }()
     
     let blueView : UIView = {
         let view = UIView()
@@ -40,6 +28,17 @@ class ViewController: UIViewController {
         return view
     }()
     
+    let topStackView = [UIColor.green].map { (color) -> UIView in
+        let view = UIView()
+        view.backgroundColor = color
+        return view
+    }
+    
+    let bottomStackView = [UIColor.yellow].map { (color) -> UIView in
+        let view = UIView()
+        view.backgroundColor = color
+        return view
+    }
     
     
     
@@ -50,18 +49,6 @@ class ViewController: UIViewController {
     }
     
     func stackViews(){
-        
-        let topStackView = [UIColor.green , UIColor.darkGray, UIColor.purple].map { (color) -> UIView in
-            let view = UIView()
-            view.backgroundColor = color
-            return view
-        }
-        
-        let bottomStackView = [UIColor.yellow, UIColor.gray, UIColor.white].map { (color) -> UIView in
-            let view = UIView()
-            view.backgroundColor = color
-            return view
-        }
         
         let stackViewBottom = UIStackView(arrangedSubviews: bottomStackView)
         stackViewBottom.heightAnchor.constraint(equalToConstant: 100).isActive = true
