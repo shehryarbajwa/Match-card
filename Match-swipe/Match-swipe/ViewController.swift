@@ -12,23 +12,26 @@ import Foundation
 class ViewController: UIViewController {
 
     
-    let redView : UIView = {
+    let blueView : UIView = {
        let view = UIView()
        view.backgroundColor = .blue
        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
        return view
     }()
     
     let orangeView : UIView = {
         let view = UIView()
         view.backgroundColor = .orange
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let buttonsView : UIView = {
+    let redView : UIView = {
         let view = UIView()
         view.backgroundColor = .red
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,29 +42,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stackViewsVertical()
-        stackViewButtons()
     }
     
     
     func stackViewsVertical(){
-        let stackView = UIStackView(arrangedSubviews: [redView, orangeView])
+        let stackView = UIStackView(arrangedSubviews: [blueView, orangeView, redView])
         view.addSubview(stackView)
         
-        stackView.distribution = .fillEqually
+        //stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.fillSuperView()
         
     }
     
-    func stackViewButtons(){
-        let stackView = UIStackView(arrangedSubviews: [buttonsView])
-        view.addSubview(buttonsView)
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.anchor(top: orangeView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 2, left: 0, bottom: 2, right: 0))
-    }
     
     
     @objc func handleLibraryButton(){
