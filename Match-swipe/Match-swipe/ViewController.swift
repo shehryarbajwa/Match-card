@@ -11,12 +11,7 @@ import Foundation
 
 class ViewController: UIViewController {
     
-    let blueView : UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+   
     
     let greenView: UIView = {
         let view = UIView()
@@ -25,12 +20,44 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let redView = UIView = {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupStackViews()
+    }
+    
+    let stackViewTop = [UIColor.blue].map {(color) -> UIView in
         let view = UIView()
-        view.backgroundColor = .red
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = color
         return view
-    }()
+    }
+    
+    let bottomstackView = [UIColor.red].map {(color) -> UIView in
+        let view = UIView()
+        view.backgroundColor = color
+        return view
+    }
+    
+    func setupStackViews(){
+        let stackViewBottom = UIStackView(arrangedSubviews: bottomstackView)
+        stackViewBottom.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        stackViewBottom.translatesAutoresizingMaskIntoConstraints = false
+        stackViewBottom.distribution = .fillEqually
+        
+        let topStackView = UIStackView(arrangedSubviews: stackViewTop)
+        topStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        topStackView.distribution = .fillProportionally
+        
+        let overallStackView = UIStackView(arrangedSubviews: [topStackView, greenView, stackViewBottom])
+        view.addSubview(overallStackView)
+        overallStackView.translatesAutoresizingMaskIntoConstraints = false
+        overallStackView.axis = .vertical
+        overallStackView.fillSuperView()
+        
+        
+        
+    }
     
     
     
