@@ -24,6 +24,10 @@ extension UIView {
         heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
+    func anchorbaby(){
+        self.viewdid
+    }
+    
     struct AnchoredConstraints {
         var top, leading, bottom, trailing, width, height : NSLayoutConstraint?
     }
@@ -32,7 +36,7 @@ extension UIView {
         var top, leading, bottom, trailing : NSLayoutConstraint?
     }
     
-    func fillSuperView(padding: UIEdgeInsets = .zero){
+        func fillSuperView(padding: UIEdgeInsets = .zero){
         
         var anchoredConstraint = superViewConstraints()
         
