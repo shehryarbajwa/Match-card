@@ -11,6 +11,12 @@ import Foundation
 
 class ViewController: UIViewController {
     
+    let orangeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     
     let blueView : UIView = {
