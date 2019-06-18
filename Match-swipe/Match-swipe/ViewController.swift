@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    
     let blueView : UIView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -46,9 +45,6 @@ class ViewController: UIViewController {
         return view
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         stackViews()
@@ -72,8 +68,6 @@ class ViewController: UIViewController {
         overallStackView.translatesAutoresizingMaskIntoConstraints = false
         overallStackView.fillSuperView()
     }
-    
-    
     
 }
 
