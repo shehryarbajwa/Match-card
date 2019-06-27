@@ -12,21 +12,23 @@ import Foundation
 class ViewController: UIViewController {
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    let topStack = [UIColor.red, UIColor.orange, UIColor.blue].map { (color) -> UIView in
-        let view = UIView()
-        view.backgroundColor = color
-        return view
-    }
-    
-    let topStackView = UIStackView(arrangedSubviews: topStack)
-    
-    
-  
+        
+        
+        let topStack = [UIColor.gray, UIColor.green, UIColor.orange].map { (color) -> UIView in
+            let view = UIView()
+            view.backgroundColor = color
+            return view
+        }
+        
+        let topStackView = UIStackView(arrangedSubviews: topStack)
+        topStackView.distribution = .fillEqually
+        topStackView.axis = .horizontal
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        topStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        view.addSubview(topStackView)
+        
 }
 
+}
