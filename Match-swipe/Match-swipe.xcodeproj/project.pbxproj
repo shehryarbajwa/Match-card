@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E678C80322C5A60700DC5A0D /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */; };
+		E678C80522C5A8E200DC5A0D /* HomeTopControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */; };
+		E678C80722C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */; };
 		E6E5B04D21BA42A80058BCAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E5B04C21BA42A80058BCAC /* AppDelegate.swift */; };
 		E6E5B04F21BA42A80058BCAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E5B04E21BA42A80058BCAC /* ViewController.swift */; };
 		E6E5B05221BA42A80058BCAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E5B05021BA42A80058BCAC /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
+		E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopControlsStackView.swift; sourceTree = "<group>"; };
+		E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuperViewControlStackView.swift; sourceTree = "<group>"; };
 		E6E5B04921BA42A80058BCAC /* Match-swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match-swipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E5B04C21BA42A80058BCAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E5B04E21BA42A80058BCAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +90,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E678C80122C5A5B800DC5A0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */,
+				E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */,
+				E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E6E5B04021BA42A80058BCAC = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +123,7 @@
 		E6E5B04B21BA42A80058BCAC /* Match-swipe */ = {
 			isa = PBXGroup;
 			children = (
+				E678C80122C5A5B800DC5A0D /* Views */,
 				E64091E121D1149500997154 /* Extensions */,
 				E6E5B04C21BA42A80058BCAC /* AppDelegate.swift */,
 				E6E5B04E21BA42A80058BCAC /* ViewController.swift */,
@@ -268,6 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6E5B04F21BA42A80058BCAC /* ViewController.swift in Sources */,
+				E678C80322C5A60700DC5A0D /* HomeBottomControlsStackView.swift in Sources */,
+				E678C80522C5A8E200DC5A0D /* HomeTopControlsStackView.swift in Sources */,
+				E678C80722C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift in Sources */,
 				E6E5B07B21BA6BFA0058BCAC /* Extensions.swift in Sources */,
 				E6E5B04D21BA42A80058BCAC /* AppDelegate.swift in Sources */,
 			);
