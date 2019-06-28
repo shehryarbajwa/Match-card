@@ -15,19 +15,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let topStack = [UIColor.gray, UIColor.green, UIColor.orange].map { (color) -> UIView in
+        let mainView = [UIColor.red].map { (color) -> UIView in
             let view = UIView()
             view.backgroundColor = color
             return view
         }
         
-        let topStackView = UIStackView(arrangedSubviews: topStack)
-        topStackView.distribution = .fillEqually
-        topStackView.axis = .horizontal
-        topStackView.translatesAutoresizingMaskIntoConstraints = false
-        topStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        view.addSubview(topStackView)
+        
+        
+        
+        let mainStackView = UIStackView(arrangedSubviews: mainView)
+        //mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.distribution = .fillEqually
+        mainStackView.axis = .vertical
+        mainStackView.fillSuperView()
+        view.addSubview(mainStackView)
+        
+        //[mainStackView].map { view.addSubview($0)}
         
 }
 
