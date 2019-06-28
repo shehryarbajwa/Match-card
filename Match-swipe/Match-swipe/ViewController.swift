@@ -21,18 +21,37 @@ class ViewController: UIViewController {
             return view
         }
         
+        let topStack = [UIColor.cyan, UIColor.green].map { (color) -> UIView in
+            let view = UIView()
+            view.backgroundColor = color
+            return view
+        }
+        
+        let bottomStack = [UIColor.white, UIColor.gray].map { (color) -> UIView in
+            let view = UIView()
+            view.backgroundColor = color
+            return view
+        }
+        
+        let topStackView = UIStackView(arrangedSubviews: topStack)
+        topStackView.axis = .horizontal
+        topStackView.distribution = .fill
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        topStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        
+        let overallStackView = UIStackView(arrangedSubviews: mainView)
+        overallStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
         
-        let mainStackView = UIStackView(arrangedSubviews: mainView)
+        let mainStackView = UIStackView(arrangedSubviews: [topStackView, overallStackView])
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.distribution = .fillEqually
         mainStackView.axis = .vertical
         mainStackView.fillSuperView()
         
         
-        //[mainStackView].map { view.addSubview($0)}
         
 }
 
