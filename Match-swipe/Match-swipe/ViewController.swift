@@ -25,11 +25,12 @@ class ViewController: UIViewController {
         
         
         let mainStackView = UIStackView(arrangedSubviews: mainView)
-        //mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mainStackView)
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.distribution = .fillEqually
         mainStackView.axis = .vertical
         mainStackView.fillSuperView()
-        view.addSubview(mainStackView)
+        
         
         //[mainStackView].map { view.addSubview($0)}
         
