@@ -43,9 +43,15 @@ class ViewController: UIViewController {
         let overallStackView = UIStackView(arrangedSubviews: mainView)
         overallStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        let bottomStackView = UIStackView(arrangedSubviews: bottomStack)
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.axis = .horizontal
+        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         
-        let mainStackView = UIStackView(arrangedSubviews: [topStackView, overallStackView])
+        
+        let mainStackView = UIStackView(arrangedSubviews: [topStackView, overallStackView, bottomStackView])
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.axis = .vertical
