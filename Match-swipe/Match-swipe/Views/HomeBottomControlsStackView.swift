@@ -40,11 +40,18 @@ class HomeBottomControlsStackView: UIStackView {
             return button
         }
         
+        var frontButton : UIButton {
+            let button = UIButton(type: .system)
+            button.setImage(UIImage(named: "forward_circle"), for: .normal)
+            return button
+        }
         
-            distribution = .fillEqually
-            axis = .horizontal
-            translatesAutoresizingMaskIntoConstraints = false
-            heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        
+        distribution = .equalCentering
+        axis = .horizontal
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     required init(coder: NSCoder) {

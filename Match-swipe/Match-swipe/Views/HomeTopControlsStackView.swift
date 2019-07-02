@@ -26,7 +26,7 @@ class HomeTopControlsStackView: UIStackView {
         distribution = .fillEqually
         axis = .horizontal
         translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 150).isActive = true
+        heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
     
