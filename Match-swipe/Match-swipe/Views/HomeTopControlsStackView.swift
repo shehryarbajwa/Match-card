@@ -13,20 +13,20 @@ class HomeTopControlsStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let topStack = [UIColor.cyan, .green, .orange].map { (color) -> UIView in
-            let view = UIView()
-            view.backgroundColor = color
-            return view
+        let topStack = [#imageLiteral(resourceName: "top_left_profile"), #imageLiteral(resourceName: "app_icon"), #imageLiteral(resourceName: "top_left_profile")].map { (image) -> UIButton in
+            let button = UIButton(type: .system)
+            button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+            return button
         }
         
-        topStack.map { (v) in
+        topStack.forEach { (v) in
             addArrangedSubview(v)
         }
         
         distribution = .fillEqually
         axis = .horizontal
         translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 100).isActive = true
+        heightAnchor.constraint(equalToConstant: 150).isActive = true
         
     }
     

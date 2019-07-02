@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E65ACDC322CBDC74003FC4E6 /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65ACDC222CBDC74003FC4E6 /* MainStackView.swift */; };
 		E678C80322C5A60700DC5A0D /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */; };
 		E678C80522C5A8E200DC5A0D /* HomeTopControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */; };
 		E678C80722C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E65ACDC222CBDC74003FC4E6 /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
 		E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopControlsStackView.swift; sourceTree = "<group>"; };
 		E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuperViewControlStackView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E678C80222C5A60700DC5A0D /* HomeBottomControlsStackView.swift */,
 				E678C80422C5A8E200DC5A0D /* HomeTopControlsStackView.swift */,
 				E678C80622C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift */,
+				E65ACDC222CBDC74003FC4E6 /* MainStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				E6E5B04F21BA42A80058BCAC /* ViewController.swift in Sources */,
 				E678C80322C5A60700DC5A0D /* HomeBottomControlsStackView.swift in Sources */,
+				E65ACDC322CBDC74003FC4E6 /* MainStackView.swift in Sources */,
 				E678C80522C5A8E200DC5A0D /* HomeTopControlsStackView.swift in Sources */,
 				E678C80722C5A9A600DC5A0D /* HomeSuperViewControlStackView.swift in Sources */,
 				E6E5B07B21BA6BFA0058BCAC /* Extensions.swift in Sources */,

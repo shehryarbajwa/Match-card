@@ -1,31 +1,29 @@
 //
-//  HomeSuperViewControlStackView.swift
+//  HomeBottomControllerStackView.swift
 //  Match-swipe
 //
-//  Created by Shehryar Bajwa on 2019-06-28.
+//  Created by Shehryar Bajwa on 2019-07-02.
 //  Copyright © 2019 Shehryar Bajwa. All rights reserved.
 //
 
 import UIKit
 
-class HomeSuperViewControlStackView: UIStackView {
+class MainstackView: UIStackView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let mainView = [UIColor.red].map { (color) -> UIView in
+        let mainView = [HomeTopControlsStackView(), HomeSuperViewControlStackView(), HomeBottomControlsStackView()].map { (view) -> UIView in
             let view = UIView()
-            view.backgroundColor = color
             return view
         }
         
-        mainView.forEach { (v) in
+        mainView.map { (v) in
             addArrangedSubview(v)
         }
         
-        translatesAutoresizingMaskIntoConstraints = false
-        distribution = .fillEqually
-        
+        axis = .vertical
+        fillSuperView()
         
     }
     
@@ -33,5 +31,7 @@ class HomeSuperViewControlStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
+    
+    
 }

@@ -24,20 +24,27 @@ class HomeBottomControlsStackView: UIStackView {
         super.init(frame: frame)
         
         
-        let bottomStack = [UIColor.white, .gray, .purple, .blue, .black].map { (color) -> UIView in
-            let view = UIView()
-            view.backgroundColor = color
-            return view
+        let bottomStack = [#imageLiteral(resourceName: "refresh_circle"), #imageLiteral(resourceName: "dismiss_circle"), #imageLiteral(resourceName: "super_like_circle"), #imageLiteral(resourceName: "like_circle"), #imageLiteral(resourceName: "boost_circle")].map { (image) -> UIButton in
+            let button = UIButton(type: .system)
+            button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+            return button
         }
         
-        bottomStack.map { (v) in
+        bottomStack.forEach { (v) in
             addArrangedSubview(v)
         }
+        
+        var reverseButton : UIButton {
+            let button = UIButton(type: .system)
+            button.setImage(UIImage(named: "refresh_circle"), for: .normal)
+            return button
+        }
+        
         
             distribution = .fillEqually
             axis = .horizontal
             translatesAutoresizingMaskIntoConstraints = false
-            heightAnchor.constraint(equalToConstant: 100).isActive = true
+            heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     required init(coder: NSCoder) {
