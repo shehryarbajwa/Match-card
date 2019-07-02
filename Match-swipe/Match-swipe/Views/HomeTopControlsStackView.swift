@@ -9,24 +9,30 @@
 import UIKit
 
 class HomeTopControlsStackView: UIStackView {
-
+    
+    let settingsButton = UIButton(type: .system)
+    let messagesButton = UIButton(type: .system)
+    let fireImageView = UIImageView(image: #imageLiteral(resourceName: "app_icon"))
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let topStack = [#imageLiteral(resourceName: "top_left_profile"), #imageLiteral(resourceName: "app_icon"), #imageLiteral(resourceName: "top_left_profile")].map { (image) -> UIButton in
-            let button = UIButton(type: .system)
-            button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
-            return button
+        
+        settingsButton.setImage(#imageLiteral(resourceName: "top_left_profile").withRenderingMode(.alwaysOriginal), for: .normal)
+        messagesButton.setImage(#imageLiteral(resourceName: "top_right_messages").withRenderingMode(.alwaysOriginal), for: .normal)
+        fireImageView.contentMode = .scaleAspectFit
+        
+        [settingsButton, fireImageView, messagesButton].forEach { (view) in
+            addArrangedSubview(view)
         }
         
-        topStack.forEach { (v) in
-            addArrangedSubview(v)
-        }
-        
-        distribution = .fillEqually
+        distribution = .equalCentering
         axis = .horizontal
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        isLayoutMarginsRelativeArrangement = true
+        layoutMargins = .init(top: 0, left: 16, bottom: 0, right: 16)
         
     }
     
