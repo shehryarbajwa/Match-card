@@ -15,16 +15,29 @@ class ViewController: UIViewController {
     
     let overallStackView = HomeSuperViewControlStackView()
     
+    let cardDeckView = UIView()
+    
     let bottomStackView = HomeBottomControlsStackView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutViews()
+        
+        cardDeckView.backgroundColor = .blue
+        
+        setupCards()
 }
     
+    fileprivate func setupCards(){
+        let cardView = CardViewController()
+        cardDeckView.addSubview(cardView)
+        cardView.fillSuperView()
+        print("card view")
+    }
+    
     fileprivate func layoutViews() {
-        let mainStackView = UIStackView(arrangedSubviews: [topStackView, overallStackView, bottomStackView])
+        let mainStackView = UIStackView(arrangedSubviews: [topStackView, cardDeckView, bottomStackView])
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.axis = .vertical
