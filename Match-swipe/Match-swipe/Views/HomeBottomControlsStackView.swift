@@ -34,18 +34,6 @@ class HomeBottomControlsStackView: UIStackView {
             addArrangedSubview(v)
         }
         
-        var reverseButton : UIButton {
-            let button = UIButton(type: .system)
-            button.setImage(UIImage(named: "refresh_circle"), for: .normal)
-            return button
-        }
-        
-        var frontButton : UIButton {
-            let button = UIButton(type: .system)
-            button.setImage(UIImage(named: "forward_circle"), for: .normal)
-            return button
-        }
-        
         
         
         distribution = .equalCentering

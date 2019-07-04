@@ -32,29 +32,25 @@ extension UIView {
         var top, leading, bottom, trailing : NSLayoutConstraint?
     }
     
-    func fillSuperView(padding: UIEdgeInsets = .zero){
-        
-        var anchoredConstraint = superViewConstraints()
-        
-        if let superViewTopAnchor = superview?.topAnchor {
-            anchoredConstraint.top = topAnchor.constraint(equalTo: superViewTopAnchor, constant: padding.top)
+    func fillSuperview(padding: UIEdgeInsets = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superviewTopAnchor = superview?.topAnchor {
+            topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top).isActive = true
         }
         
-        if let superViewLeadingAnchor = superview?.leadingAnchor {
-            anchoredConstraint.leading = leadingAnchor.constraint(equalTo: superViewLeadingAnchor, constant: padding.left)
+        if let superviewBottomAnchor = superview?.bottomAnchor {
+            bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: -padding.bottom).isActive = true
         }
         
-        if let superViewBottomAnchor = superview?.bottomAnchor {
-            anchoredConstraint.bottom = bottomAnchor.constraint(equalTo: superViewBottomAnchor, constant: padding.bottom)
+        if let superviewLeadingAnchor = superview?.leadingAnchor {
+            leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: padding.left).isActive = true
         }
         
-        if let superViewTrailingAnchor = superview?.trailingAnchor {
-            anchoredConstraint.trailing = trailingAnchor.constraint(equalTo: superViewTrailingAnchor, constant: padding.right)
-        }
-        
-        [anchoredConstraint.top , anchoredConstraint.leading , anchoredConstraint.bottom , anchoredConstraint.trailing].forEach { $0?.isActive = true
+        if let superviewTrailingAnchor = superview?.trailingAnchor {
+            trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: -padding.right).isActive = true
         }
     }
+    
     
     
     func anchor(top: NSLayoutYAxisAnchor? , leading: NSLayoutXAxisAnchor? , bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero){

@@ -9,12 +9,18 @@
 import UIKit
 
 class CardViewController: UIView {
+    
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Profilepicture"))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .red
         translatesAutoresizingMaskIntoConstraints = false
+        //backgroundColor = .red
+        addSubview(imageView)
+        imageView.fillSuperview()
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     
     let topStackView = HomeTopControlsStackView()
     
-    let overallStackView = HomeSuperViewControlStackView()
-    
     let cardDeckView = UIView()
     
     let bottomStackView = HomeBottomControlsStackView()
@@ -23,17 +21,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutViews()
-        
-        cardDeckView.backgroundColor = .blue
-        
         setupCards()
 }
     
     fileprivate func setupCards(){
         let cardView = CardViewController()
         cardDeckView.addSubview(cardView)
-        cardView.fillSuperView()
-        print("card view")
+        cardView.fillSuperview()
     }
     
     fileprivate func layoutViews() {
