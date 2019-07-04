@@ -9,22 +9,37 @@
 import UIKit
 
 class CardViewController: UIView {
-    
-    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Profilepicture"))
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        translatesAutoresizingMaskIntoConstraints = false
-        //backgroundColor = .red
-        addSubview(imageView)
-        imageView.fillSuperview()
-        
+        setupViews()
+        createPanGesture()
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupViews() {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "Profilepicture"))
+        layer.cornerRadius = 10
+        clipsToBounds = true
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(imageView)
+        imageView.fillSuperview()
+    }
+    
+    fileprivate func createPanGesture(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        addGestureRecognizer(panGesture)
+    }
+    
+    @objc fileprivate func handlePanGesture(gesture: UIPanGestureRecognizer){
+        let translation = gesture.translation(in: nil)
+        print(translation.x)
     }
     
 
