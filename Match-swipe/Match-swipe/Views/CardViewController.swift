@@ -37,12 +37,33 @@ class CardViewController: UIView {
         addGestureRecognizer(panGesture)
     }
     
+    
     @objc func handlePan(gesture: UIPanGestureRecognizer){
-        let translation = gesture.translation(in: nil)
-        print(translation.x)
-        print(translation.y)
         
-        self.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        switch gesture.state {
+        case .began:
+            print("pan gesture was touched")
+        case .changed:
+            handleGesturechanged(gesture)
+        case .ended:
+            handleGestureEnd()
+            break
+            
+        default:
+            ()
+        }
+    }
+    
+    fileprivate func handleGestureEnd() {
+        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.transform = .identity
+        }) { (_) in
+        }
+    }
+    
+    fileprivate func handleGesturechanged(_ gesture: UIPanGestureRecognizer) {
+        let translate = gesture.translation(in: nil)
+        transform = CGAffineTransform(translationX: translate.x, y: translate.y)
     }
     
     
