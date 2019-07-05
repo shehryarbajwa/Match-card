@@ -55,19 +55,21 @@ class CardViewController: UIView {
     }
     
     fileprivate func handleGestureEnd() {
-        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.transform = .identity
         }) { (_) in
         }
     }
     
     fileprivate func handleGesturechanged(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: nil)
         
-        let degrees: CGFloat = 20
+        let degrees: CGFloat = translation.x / 20
         let radians = degrees * .pi / 180
         let translate = gesture.translation(in: nil)
-        transform = CGAffineTransform(rotationAngle: radians)
+        let rotationalTransformation = CGAffineTransform(rotationAngle: radians)
         //transform = CGAffineTransform(translationX: translate.x, y: translate.y)
+        self.transform = rotationalTransformation.translatedBy(x: translation.x, y: translation.y)
     }
     
     
