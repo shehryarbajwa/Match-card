@@ -15,7 +15,7 @@ class CardViewController: UIView {
         super.init(frame: frame)
         
         setupViews()
-        createPanGesture()
+        setupPanGestures()
         
     }
     
@@ -24,23 +24,27 @@ class CardViewController: UIView {
     }
     
     fileprivate func setupViews() {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Profilepicture"))
+        let cardImage = UIImageView(image: #imageLiteral(resourceName: "resize"))
         layer.cornerRadius = 10
         clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
-        imageView.fillSuperview()
+        addSubview(cardImage)
+        cardImage.fillSuperview()
+        
     }
     
-    fileprivate func createPanGesture(){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+    fileprivate func setupPanGestures(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         addGestureRecognizer(panGesture)
     }
     
-    @objc fileprivate func handlePanGesture(gesture: UIPanGestureRecognizer){
+    @objc func handlePan(gesture: UIPanGestureRecognizer){
         let translation = gesture.translation(in: nil)
         print(translation.x)
+        print(translation.y)
+        
+        self.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
     }
+    
     
 
 }
